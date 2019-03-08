@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">ToDoListWithFragments</string>
+    <string name="username_string">USERNAME :</string>
+    <string name="username_edit_text_hint">Enter Username</string>
+    <string name="password_edit_text_hint">Enter Password</string>
+    <string name="password_label_string">PASSWORD :</string>
+    <string name="submit_button_string">Submit</string>
+    <string name="reset_button_string">reset</string>
+    <string name="username">Username :</string>
+    <string name="password">Password :</string>
+    <string name="add_button">ADD</string>
+    <string name="todo">TODO : </string>
+    <string name="reset_button">RESET</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

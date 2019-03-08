@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="general_margin">20dp</dimen>
+    <dimen name="margin">20dp</dimen>
+    <dimen name="txt_size">20sp</dimen>
+    <dimen name="list_item_general_margin">5dp</dimen>
+    <dimen name="list_item_card_corner_radius">8dp</dimen>
+    <dimen name="list_item_card_elevation">8dp</dimen>
+</resources>

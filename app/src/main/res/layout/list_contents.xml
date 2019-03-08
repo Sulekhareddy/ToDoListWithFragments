@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/toDo_label"
+        android:text="@string/todo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/txt_size"
+        android:textColor="@android:color/holo_blue_dark"
+        android:layout_marginRight="@dimen/general_margin"
+        android:layout_marginStart="@dimen/general_margin"
+        android:layout_marginTop="@dimen/general_margin"/>
+
+    <TextView
+        android:id="@+id/toDo_thing"
+        android:layout_toEndOf="@id/toDo_label"
+        android:layout_marginStart="@dimen/list_item_general_margin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/txt_size"
+        android:textColor="@android:color/holo_orange_dark"
+        android:layout_marginEnd="@dimen/general_margin"
+        android:layout_marginTop="@dimen/general_margin"/>
+
+</RelativeLayout>
