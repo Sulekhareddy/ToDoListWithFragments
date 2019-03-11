@@ -54,7 +54,9 @@ public class ToDoListFragment extends Fragment  implements OnItemClickedListener
         addButton.setOnClickListener(this);
         resetButton.setOnClickListener(this);
 
-        loadToDoListFromDatabase();
+        List<ToDoItem> toDoItems = repository.getAllToDoItems();
+        toDOList = toDoItems;
+        adapter.setAdapterItems(toDoItems);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
@@ -87,29 +89,11 @@ public class ToDoListFragment extends Fragment  implements OnItemClickedListener
     }
 
     @Override
-    public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
-        super.onViewStateRestored(savedInstanceState);
-
-        loadToDoListFromDatabase();
-    }
-
-    @Override
     public void onResume() {
         super.onResume();
-
-        loadToDoListFromDatabase();
-    }
-
-    private void loadToDoListFromDatabase(){
-        Thread thread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                List<ToDoItem> toDoItems = repository.getAllToDoItems();
-                toDOList = toDoItems;
-                adapter.setAdapterItems(toDoItems);
-            }
-        });
-        thread.start();
+        List<ToDoItem> toDoItems = repository.getAllToDoItems();
+        toDOList = toDoItems;
+        adapter.setAdapterItems(toDoItems);
     }
 
     @Override
