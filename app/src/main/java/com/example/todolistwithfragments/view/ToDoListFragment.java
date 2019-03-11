@@ -1,6 +1,7 @@
 package com.example.todolistwithfragments.view;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -83,6 +84,13 @@ public class ToDoListFragment extends Fragment  implements OnItemClickedListener
             case R.id.reset_button:
                 toDoList_EditText.setText("");
         }
+    }
+
+    @Override
+    public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
+        super.onViewStateRestored(savedInstanceState);
+
+        loadToDoListFromDatabase();
     }
 
     @Override

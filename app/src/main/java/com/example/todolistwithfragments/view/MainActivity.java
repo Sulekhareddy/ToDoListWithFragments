@@ -11,13 +11,17 @@ public class MainActivity extends AppCompatActivity implements LoginFragment.OnF
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, new LoginFragment()).commit();
+        getSupportFragmentManager().beginTransaction()
+                .add(R.id.fragment_container, new LoginFragment())
+                .addToBackStack(null)
+                .commit();
     }
 
     @Override
     public void onFragmentInteraction() {
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ToDoListFragment())
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, new ToDoListFragment())
                 .addToBackStack(null)
                 .commit();
     }
