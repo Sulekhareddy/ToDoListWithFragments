@@ -15,9 +15,6 @@ import android.widget.Toast;
 
 import com.example.todolistwithfragments.R;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class LoginFragment extends Fragment implements View.OnClickListener{
 
     private EditText userNameEditText;
@@ -33,19 +30,15 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
     private String prefPwd;
     private boolean prefIsAlreadyLoggedIn;
 
-
     private OnFragmentInteractionListener listener;
 
     public interface OnFragmentInteractionListener {
         void onFragmentInteraction();
     }
 
-
-
     public LoginFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -76,8 +69,6 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
                         if (userName.equals(prefUserName) && password.equals(prefPwd)) {
 
                             onButtonPressed();
-//                            Intent intent = new Intent(getActivity(), MainActivity.class);
-//                            startActivity(intent);
                         } else {
                             Toast.makeText(getActivity(), "Incorrect username or password", Toast.LENGTH_SHORT).show();
                         }
@@ -113,7 +104,6 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
         prefUserName = sharedPreferences.getString(PREF_KEY_USERNAME, "");
         prefPwd = sharedPreferences.getString(PREF_KEY_PWD, "");
         prefIsAlreadyLoggedIn = sharedPreferences.getBoolean(PREF_KEY_USER_LOGGED_IN, false);
-
     }
 
     @Override
@@ -132,8 +122,6 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
         super.onDetach();
         listener = null;
     }
-
-
 
     private void saveUserName(String userName, String password) {
         SharedPreferences.Editor editor = sharedPreferences.edit();

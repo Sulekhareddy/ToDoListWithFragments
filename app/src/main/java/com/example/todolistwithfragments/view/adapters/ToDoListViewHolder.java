@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 import com.example.todolistwithfragments.R;
 import com.example.todolistwithfragments.listeners.OnItemClickedListener;
-import com.example.todolistwithfragments.model.ToDoItem;
+import com.example.todolistwithfragments.data.entities.ToDoItem;
 
 public class ToDoListViewHolder extends RecyclerView.ViewHolder {
 

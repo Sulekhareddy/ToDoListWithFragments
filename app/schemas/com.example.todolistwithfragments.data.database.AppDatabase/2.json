@@ -1,0 +1,33 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 2,
+    "identityHash": "aeda5f037e2409d4aaf445fef31c1596",
+    "entities": [
+      {
+        "tableName": "todoitem_table",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`todo_items` TEXT NOT NULL, PRIMARY KEY(`todo_items`))",
+        "fields": [
+          {
+            "fieldPath": "toDoItems",
+            "columnName": "todo_items",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "todo_items"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"aeda5f037e2409d4aaf445fef31c1596\")"
+    ]
+  }
+}

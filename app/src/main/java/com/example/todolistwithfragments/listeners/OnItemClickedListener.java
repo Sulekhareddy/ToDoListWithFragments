@@ -1,6 +1,6 @@
 package com.example.todolistwithfragments.listeners;
 
-import com.example.todolistwithfragments.model.ToDoItem;
+import com.example.todolistwithfragments.data.entities.ToDoItem;
 
 public interface OnItemClickedListener {
 

@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 
 import com.example.todolistwithfragments.R;
 import com.example.todolistwithfragments.listeners.OnItemClickedListener;
-import com.example.todolistwithfragments.model.ToDoItem;
+import com.example.todolistwithfragments.data.entities.ToDoItem;
 
 import java.util.ArrayList;
 import java.util.List;
