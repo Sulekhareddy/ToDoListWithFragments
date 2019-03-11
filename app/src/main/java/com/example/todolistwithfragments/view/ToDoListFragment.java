@@ -54,10 +54,6 @@ public class ToDoListFragment extends Fragment  implements OnItemClickedListener
         addButton.setOnClickListener(this);
         resetButton.setOnClickListener(this);
 
-        List<ToDoItem> toDoItems = repository.getAllToDoItems();
-        toDOList = toDoItems;
-        adapter.setAdapterItems(toDoItems);
-
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
 
