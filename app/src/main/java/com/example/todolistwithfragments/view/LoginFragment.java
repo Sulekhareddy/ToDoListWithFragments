@@ -70,14 +70,14 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
 
                             onButtonPressed();
                         } else {
-                            Toast.makeText(getActivity(), "Incorrect username or password", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(), getContext().getResources().getString(R.string.user_Pass), Toast.LENGTH_SHORT).show();
                         }
                     } else {
                         saveUserName(userName, password);
                        onButtonPressed();
                     }
                 } else {
-                    Toast.makeText(getActivity(), "Please enter the login details", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), getContext().getResources().getString(R.string.login_details), Toast.LENGTH_SHORT).show();
                 }
                 break;
 
