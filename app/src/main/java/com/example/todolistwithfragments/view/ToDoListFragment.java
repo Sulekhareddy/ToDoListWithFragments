@@ -1,7 +1,6 @@
 package com.example.todolistwithfragments.view;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -20,6 +19,7 @@ import com.example.todolistwithfragments.view.adapters.ToDoListAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 public class ToDoListFragment extends Fragment  implements OnItemClickedListener {
 
@@ -28,7 +28,6 @@ public class ToDoListFragment extends Fragment  implements OnItemClickedListener
 
     private RecyclerView recyclerView;
     private ToDoListAdapter adapter;
-    private List<ToDoItem> toDOList = new ArrayList<>();
     ToDoItem toDoItem;
     private Repository repository;
 
@@ -55,13 +54,12 @@ public class ToDoListFragment extends Fragment  implements OnItemClickedListener
 
                 String toDoItemsData = toDoList_EditText.getText().toString();
                 if(!toDoItemsData.isEmpty()){
-                    int topPos = 0;
-                    toDoItem = new ToDoItem(toDoItemsData);
-                    toDOList.add(topPos, toDoItem);
+
+                    toDoItem = new ToDoItem();
+                    toDoItem.setToDoItems(toDoItemsData);
+                    adapter.addItem(0, toDoItem);
                     toDoList_EditText.setText("");
-                    adapter.notifyItemInserted(topPos);
                     repository.insertToDoItem(toDoItem);
-                    recyclerView.scrollToPosition(topPos);
                 }else{
                     Toast.makeText(getContext(), getContext().getResources().getString(R.string.general_text), Toast.LENGTH_SHORT).show();
                 }
@@ -78,8 +76,12 @@ public class ToDoListFragment extends Fragment  implements OnItemClickedListener
     @Override
     public void onResume() {
         super.onResume();
-        List<ToDoItem> toDoItems = repository.getAllToDoItems();
-        toDOList = toDoItems;
+        List<ToDoItem> toDoItems = null;
+        try {
+            toDoItems = repository.getAllToDoItems();
+        } catch (ExecutionException | InterruptedException e) {
+            e.printStackTrace();
+        }
         adapter.setAdapterItems(toDoItems);
     }
 

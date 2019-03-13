@@ -16,10 +16,6 @@ public class ToDoItem {
     @ColumnInfo(name = "todo_items")
     private String toDoItems;
 
-    public ToDoItem(String toDoItems) {
-        this.toDoItems = toDoItems;
-    }
-
     public String getToDoItems() {
         return toDoItems;
     }

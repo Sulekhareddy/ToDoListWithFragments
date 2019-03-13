@@ -19,9 +19,17 @@ public class ToDoListAdapter extends RecyclerView.Adapter<ToDoListViewHolder>{
 
     private List<ToDoItem> todolist = new ArrayList<>();
 
+    RecyclerView mRecyclerView;
+
     public ToDoListAdapter() {
     }
 
+    @Override
+    public void onAttachedToRecyclerView(RecyclerView recyclerView) {
+        super.onAttachedToRecyclerView(recyclerView);
+
+        mRecyclerView = recyclerView;
+    }
     @NonNull
     @Override
     public ToDoListViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int position) {
@@ -46,7 +54,14 @@ public class ToDoListAdapter extends RecyclerView.Adapter<ToDoListViewHolder>{
         if (!todolist.isEmpty()) {
             todolist.clear();
         }
-        todolist = todoitem;
+        todolist.addAll(todoitem);
+        notifyDataSetChanged();
+    }
+
+    public void addItem(int topPos, ToDoItem toDoItem) {
+        todolist.add(topPos, toDoItem);
+        notifyItemInserted(topPos);
+        mRecyclerView.scrollToPosition(topPos);
     }
 
 

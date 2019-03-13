@@ -20,7 +20,7 @@ public abstract class AppDatabase extends RoomDatabase {
     public static AppDatabase getAppDatabase(Context context) {
         if (INSTANCE == null) {
             INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-                    AppDatabase.class, DB_NAME).allowMainThreadQueries()
+                    AppDatabase.class, DB_NAME)
                     .build();
         }
         return INSTANCE;
